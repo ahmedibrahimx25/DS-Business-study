@@ -1,0 +1,7 @@
+pandas
+numpy
+scikit-learn==1.6.1
+joblib
+streamlit>=1.40
+altair>=5
+requests

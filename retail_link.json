@@ -1,0 +1,43 @@
+{
+ "definition": "customers with a returned/cancelled order in the last 365 days vs none, compared at similar activity levels",
+ "outcome": "buys again within 90 days",
+ "rr": 1.1135934341694662,
+ "rr_ci": [
+  1.0774317230059058,
+  1.1524599816823249
+ ],
+ "rate_wrong": 0.5770586350528677,
+ "n_wrong": 6242,
+ "rate_fine": 0.3308890095962339,
+ "n_fine": 11046,
+ "strata": [
+  {
+   "stratum": 0,
+   "n_wrong": 660,
+   "rate_wrong": 0.23030303030303031,
+   "n_fine": 3662,
+   "rate_fine": 0.170398689240852
+  },
+  {
+   "stratum": 1,
+   "n_wrong": 893,
+   "rate_wrong": 0.3057110862262038,
+   "n_fine": 3429,
+   "rate_fine": 0.27121609798775154
+  },
+  {
+   "stratum": 2,
+   "n_wrong": 1635,
+   "rate_wrong": 0.4837920489296636,
+   "n_fine": 2687,
+   "rate_fine": 0.4439895794566431
+  },
+  {
+   "stratum": 3,
+   "n_wrong": 3054,
+   "rate_wrong": 0.7812704649639817,
+   "n_fine": 1268,
+   "rate_fine": 0.7160883280757098
+  }
+ ]
+}
