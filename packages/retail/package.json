@@ -1,0 +1,170 @@
+{
+ "key": "retail",
+ "name": "Online Retail II (UK gift & homeware)",
+ "currency": "\u00a3",
+ "data_end": "2011-12-09",
+ "order_model": {
+  "file": "order_model.joblib",
+  "layout": "single",
+  "target": "returned_30d",
+  "version": "retail-order-risk-o1-20261003",
+  "features": [
+   "n_lines",
+   "n_products",
+   "log_value",
+   "log_units",
+   "log_max_qty",
+   "avg_unit_price_log",
+   "log_prior_orders",
+   "is_first_order",
+   "days_since_prev",
+   "cust_return_rate",
+   "prod_rate_max",
+   "prod_rate_mean",
+   "hour",
+   "weekday",
+   "month",
+   "country_group"
+  ],
+  "cat": [
+   "country_group"
+  ],
+  "outcome_label": "is (partly) returned or cancelled within 30 days",
+  "auc": 0.7366535012727491,
+  "auc_ci": [
+   0.7164620846697631,
+   0.7556442378748751
+  ],
+  "base_rate": 0.15259241762135348,
+  "quantiles": {
+   "p50": 0.1220941884329414,
+   "p90": 0.2940296639671879
+  },
+  "band_outcomes": [
+   {
+    "band": "High",
+    "n": 758,
+    "rate_pct": 40.63,
+    "ci_low": 37.19,
+    "ci_high": 44.17
+   },
+   {
+    "band": "Medium",
+    "n": 2934,
+    "rate_pct": 18.68,
+    "ci_low": 17.31,
+    "ci_high": 20.13
+   },
+   {
+    "band": "Low",
+    "n": 4099,
+    "rate_pct": 6.76,
+    "ci_low": 6.03,
+    "ci_high": 7.57
+   }
+  ],
+  "extra_targets": {},
+  "model_type": "logistic",
+  "rules": {
+   "cust_return_rate": 0.6768478191993811,
+   "prod_rate_max": 0.6397408422652892,
+   "n_lines": 0.6060387108713525,
+   "log_value": 0.6449044835072885
+  },
+  "sklearn_version": "1.6.1"
+ },
+ "orders": {
+  "file": "orders.csv",
+  "outcome": "returned_30d",
+  "value_from": "log_value",
+  "n_orders": 36594,
+  "n_customers": 5852,
+  "first_date": "2009-12-01"
+ },
+ "retention": {
+  "version": "retail-retention-r1-20261003",
+  "auc": 0.7926939921547049,
+  "auc_ci": [
+   0.7845241859829359,
+   0.80270162946251
+  ],
+  "base_rate": 0.4197709393799167,
+  "outcome": "buys again within 90 days",
+  "at_order_time": true,
+  "model_type": "gradient boosting",
+  "best_rule": "freq_365",
+  "best_rule_auc": 0.7561790638630278,
+  "band_outcomes": [
+   {
+    "band": "High",
+    "n": 1891,
+    "rate_pct": 92.12,
+    "ci_low": 90.82,
+    "ci_high": 93.25
+   },
+   {
+    "band": "Medium",
+    "n": 10032,
+    "rate_pct": 46.26,
+    "ci_low": 45.29,
+    "ci_high": 47.24
+   },
+   {
+    "band": "Low",
+    "n": 5365,
+    "rate_pct": 16.29,
+    "ci_low": 15.33,
+    "ci_high": 17.3
+   }
+  ],
+  "n_features": 19,
+  "note": "scores a customer from their purchase history at any moment"
+ },
+ "link": {
+  "definition": "customers with a returned/cancelled order in the last 365 days vs none, compared at similar activity levels",
+  "outcome": "buys again within 90 days",
+  "rr": 1.1135934341694662,
+  "rr_ci": [
+   1.0774317230059058,
+   1.1524599816823249
+  ],
+  "rate_wrong": 0.5770586350528677,
+  "n_wrong": 6242,
+  "rate_fine": 0.3308890095962339,
+  "n_fine": 11046,
+  "strata": [
+   {
+    "stratum": 0,
+    "n_wrong": 660,
+    "rate_wrong": 0.23030303030303031,
+    "n_fine": 3662,
+    "rate_fine": 0.170398689240852
+   },
+   {
+    "stratum": 1,
+    "n_wrong": 893,
+    "rate_wrong": 0.3057110862262038,
+    "n_fine": 3429,
+    "rate_fine": 0.27121609798775154
+   },
+   {
+    "stratum": 2,
+    "n_wrong": 1635,
+    "rate_wrong": 0.4837920489296636,
+    "n_fine": 2687,
+    "rate_fine": 0.4439895794566431
+   },
+   {
+    "stratum": 3,
+    "n_wrong": 3054,
+    "rate_wrong": 0.7812704649639817,
+    "n_fine": 1268,
+    "rate_fine": 0.7160883280757098
+   }
+  ]
+ },
+ "experiment": {
+  "name": "retail-order-care-v1",
+  "holdout_pct": 50
+ }
+}
