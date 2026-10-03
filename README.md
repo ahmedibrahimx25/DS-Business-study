@@ -3,7 +3,7 @@
 **A decision-support system that tells an online retailer which orders to act on before they are returned or cancelled,
 which customers are likely to come back, and - through a built-in randomised experiment - whether acting actually pays off.**
 
-[Live demo](https://YOUR-APP.streamlit.app) · [Case study documents](docs/) · [Notebooks](notebooks/)
+ · [Case study documents](docs/) · [Notebooks](notebooks/)
 
 ![Overview](docs/screenshots/overview.png)
 
